@@ -1,0 +1,21 @@
+h1,h3,h5,p {
+  font-family: 'Avenir';
+}
+
+a {
+  color: #555555;
+  text-decoration: none;
+}
+
+.recipeCard {
+  border-color: orange;
+  border-width: thin;
+}
+
+.recipesView {
+  display: inline-flex;
+}
+
+.filtersView {
+  display: inline-flex;
+}
