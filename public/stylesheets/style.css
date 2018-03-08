@@ -8,8 +8,7 @@ a {
 }
 
 .recipeCard {
-  border-color: orange;
-  border-width: thin;
+  margin: 0px 2px;
 }
 
 .recipesView {
@@ -18,4 +17,28 @@ a {
 
 .filtersView {
   display: inline-flex;
+}
+
+input {
+  color: #e0426b;
+  border-radius: 10px;
+  padding: 2px;
+  text-align: center;
+  background-color: aliceblue;
+  font-weight: bold;
+  margin: 0px 10px 0px 0px;
+}
+
+button {
+  border-width: 1.5px;
+  border-color: #e0426b;
+  border-radius: 10px;
+  width: 30px;
+  height: 20px;
+  text-align: center;
+  margin: 0px 10px 0px 0px;
+}
+
+img {
+  border-radius: 30px;
 }
