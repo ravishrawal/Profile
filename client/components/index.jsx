@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import Home from './Home.jsx';
 
 //Redux Calls
-import store, { fetchRecipes } from '../store';
+import store from '../store';
 
 export default class App extends Component {
   render(){
