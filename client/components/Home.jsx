@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import { } from '../store';
+import { getProjects } from '../store';
 
 import Login from './Login';
 
@@ -11,14 +11,36 @@ class Home extends Component{
     super(props);
   }
   componentDidMount(){
+    this.props.fetchProjects();
   }
   render(){
+    const { projects } = this.props;
     return (
       <div>
         Home
+        { projects &&
+          projects.map(project => {
+            return <h1 key={project.id}>{project.name}</h1>
+          })
+        }
       </div>
     )
   }
 }
 
-export default Home;
+const mapStateToProps = ({ projects }) => {
+  return {
+    projects
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchProjects: () => {
+      dispatch(getProjects());
+    }
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

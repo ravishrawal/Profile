@@ -1,12 +1,12 @@
 const axios = require('axios');
 
-const { project, experience, education } = require('./db');
+const { Project, Experience, Education } = require('./db').models;
 
 const storeToDB = (projects, experiences, educations) => {
   Promise.all([
-    project.bulkCreate(projects),
-    experience.bulkCreate(experiences),
-    education.bulkCreate(educations),
+    Project.bulkCreate(projects),
+    Experience.bulkCreate(experiences),
+    Education.bulkCreate(educations),
   ])
   .then(() => console.log('seeded'))
   .catch((er) => console.log('seed error: ', er.message));

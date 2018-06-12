@@ -1,17 +1,17 @@
 const db = require('./conn');
 
 //Models
-const project = require('./Project');
-const experience = require('./Experience');
-const education = require('./Education');
+const Project = require('./Project');
+const Experience = require('./Experience');
+const Education = require('./Education');
 
 //Associations
 
 module.exports = {
   db,
   models:{
-    project,
-    experience,
-    education,
+    Project,
+    Experience,
+    Education,
   }
 };
