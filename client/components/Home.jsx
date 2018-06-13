@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { getProjects } from '../store';
 
-import Login from './Login';
+import Card from './Card';
 
 
 class Home extends Component{
@@ -11,17 +11,20 @@ class Home extends Component{
     super(props);
   }
   componentDidMount(){
-    this.props.fetchProjects();
+    this.props.fetchProjects()
   }
   render(){
     const { projects } = this.props;
+    const filterArr = (arr, field) => arr.filter(el => el.field === field);
+    console.log('ARRAY', filterArr(projects, 'ME'))
     return (
       <div>
         Home
-        { projects &&
-          projects.map(project => {
-            return <h1 key={project.id}>{project.name}</h1>
-          })
+        {
+          <div>
+            <Card heading='Mechanical Engineering' projects={filterArr(projects, 'ME')} />
+            <Card heading='Software Engineering' projects={filterArr(projects, 'SE')} />
+          </div>
         }
       </div>
     )
