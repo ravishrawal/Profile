@@ -4,9 +4,10 @@ import logger from 'redux-logger';
 
 import projects from './projects';
 import experiences from './experiences';
+import education from './education';
 
 //create reducer
-const reducer = combineReducers({ projects, experiences });
+const reducer = combineReducers({ projects, experiences, education, });
 
 //allow the use of thunks
 const middleware = applyMiddleware(thunk, logger);
@@ -21,3 +22,4 @@ export default store;
 //export all functions to allow us to import everything from index
 export * from './projects';
 export * from './experiences';
+export * from './education';

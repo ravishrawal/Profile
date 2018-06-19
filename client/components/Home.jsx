@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import { getProjects, getExperiences } from '../store';
+import { getProjects, getExperiences, getEducation } from '../store';
 
 import Card from './Card';
 
@@ -13,17 +13,18 @@ class Home extends Component{
   componentDidMount(){
     this.props.fetchProjects()
     this.props.fetchExperiences()
+    this.props.fetchEducation()
   }
   render(){
-    const { projects, experiences } = this.props;
+    const { projects, experiences, education } = this.props;
     const filterArr = (arr, field) => arr.filter(el => el.field === field);
     return (
       <div>
         Home
         {
           <div>
-            <Card heading='Mechanical Engineering' projects={filterArr(projects, 'ME')} experience={filterArr(experiences, 'ME')}/>
-            <Card heading='Software Engineering' projects={filterArr(projects, 'SE')} experience={filterArr(experiences, 'SE')}/>
+            <Card heading='Mechanical Engineering' projects={filterArr(projects, 'ME')} experience={filterArr(experiences, 'ME')} education={filterArr(education, 'ME')}/>
+            <Card heading='Software Engineering' projects={filterArr(projects, 'SE')} experience={filterArr(experiences, 'SE')} education={filterArr(education, 'SE')}/>
           </div>
         }
       </div>
@@ -31,10 +32,11 @@ class Home extends Component{
   }
 }
 
-const mapStateToProps = ({ projects, experiences }) => {
+const mapStateToProps = ({ projects, experiences, education }) => {
   return {
     projects,
     experiences,
+    education,
   };
 };
 
@@ -45,6 +47,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     fetchExperiences: () => {
       dispatch(getExperiences());
+    },
+    fetchEducation: () => {
+      dispatch(getEducation());
     }
   }
 }

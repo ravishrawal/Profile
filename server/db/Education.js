@@ -9,7 +9,7 @@ const education = db.define('education', {
   major: {
     type: Sequelize.STRING,
   },
-  date: {
+  gradDate: {
     type: Sequelize.STRING,
   },
   coursework: {

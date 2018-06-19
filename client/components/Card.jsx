@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 
 import ProjectInfoCard from './ProjectInfoCard';
 import ExperienceInfoCard from './ExperienceInfoCard';
+import EducationInfoCard from './EducationInfoCard';
 
 function Card(props){
-  const { heading, projects, experience } = props;
+  const { heading, projects, experience, education } = props;
   return (
     <div>
       <h3 className='FieldHeader'>{ heading }</h3>
@@ -14,6 +15,7 @@ function Card(props){
       <h5 className='SubHeader'>Experience</h5>
       { experience && experience.map(experience => <ExperienceInfoCard experience={experience} /> ) }
       <h5 className='SubHeader'>Education</h5>
+      { education && education.map(education => <EducationInfoCard education={education} /> ) }
     </div>
   )
 }
