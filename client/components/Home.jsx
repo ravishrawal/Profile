@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import { getProjects } from '../store';
+import { getProjects, getExperiences } from '../store';
 
 import Card from './Card';
 
@@ -12,18 +12,18 @@ class Home extends Component{
   }
   componentDidMount(){
     this.props.fetchProjects()
+    this.props.fetchExperiences()
   }
   render(){
-    const { projects } = this.props;
+    const { projects, experiences } = this.props;
     const filterArr = (arr, field) => arr.filter(el => el.field === field);
-    console.log('ARRAY', filterArr(projects, 'ME'))
     return (
       <div>
         Home
         {
           <div>
-            <Card heading='Mechanical Engineering' projects={filterArr(projects, 'ME')} />
-            <Card heading='Software Engineering' projects={filterArr(projects, 'SE')} />
+            <Card heading='Mechanical Engineering' projects={filterArr(projects, 'ME')} experience={filterArr(experiences, 'ME')}/>
+            <Card heading='Software Engineering' projects={filterArr(projects, 'SE')} experience={filterArr(experiences, 'SE')}/>
           </div>
         }
       </div>
@@ -31,9 +31,10 @@ class Home extends Component{
   }
 }
 
-const mapStateToProps = ({ projects }) => {
+const mapStateToProps = ({ projects, experiences }) => {
   return {
-    projects
+    projects,
+    experiences,
   };
 };
 
@@ -41,6 +42,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchProjects: () => {
       dispatch(getProjects());
+    },
+    fetchExperiences: () => {
+      dispatch(getExperiences());
     }
   }
 }
