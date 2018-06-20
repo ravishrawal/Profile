@@ -20,13 +20,11 @@ class Home extends Component{
     const filterArr = (arr, field) => arr.filter(el => el.field === field);
     return (
       <div>
-        Home
-        {
-          <div>
+          <h1 className='info'>Ravish Rawal</h1>
+          <div className='container'>
             <Card heading='Mechanical Engineering' projects={filterArr(projects, 'ME')} experience={filterArr(experiences, 'ME')} education={filterArr(education, 'ME')}/>
             <Card heading='Software Engineering' projects={filterArr(projects, 'SE')} experience={filterArr(experiences, 'SE')} education={filterArr(education, 'SE')}/>
           </div>
-        }
       </div>
     )
   }

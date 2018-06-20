@@ -1,1 +1,17 @@
+.card {
+  width: 40%;
+  margin:auto;
+  text-align: center;
+}
 
+@media screen and (min-height:500px){
+  .container {
+    display: flex;
+    flex-direction: row;
+    height:500px;
+  }
+}
+
+.info {
+  text-align: center;
+}
