@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getProjects, getExperiences, getEducation } from '../store';
 
 import Card from './Card';
+import { cardSetup } from '../../public/jquery';
 
 
 class Home extends Component{
@@ -11,9 +12,12 @@ class Home extends Component{
     super(props);
   }
   componentDidMount(){
-    this.props.fetchProjects()
-    this.props.fetchExperiences()
-    this.props.fetchEducation()
+    Promise.all([
+      this.props.fetchProjects(),
+      this.props.fetchExperiences(),
+      this.props.fetchEducation()
+    ])
+    .then(() => cardSetup());
   }
   render(){
     const { projects, experiences, education } = this.props;

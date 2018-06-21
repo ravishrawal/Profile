@@ -15,3 +15,33 @@
 .info {
   text-align: center;
 }
+
+.ui.raised.segment.hover {
+  transform: scale(1,1.01);
+  background-color: aliceblue;
+  border-color: grey;
+}
+
+.subCardContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.ui.red.segment.infoCard {
+  margin: 0 1%;
+  flex: 1;
+}
+
+.expand {
+  position: absolute;
+  right: 20px;
+  align-self: center;
+}
+
+.headerContainer {
+  display: inline-flex;
+}
+
+.header {
+  margin: auto;
+}
